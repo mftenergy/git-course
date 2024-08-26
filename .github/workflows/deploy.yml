@@ -31,7 +31,7 @@ jobs:
         run: npm i -g @antfu/ni
 
       - name: Install dependencies
-        run: nci --prefix slidedeck
+        run: npm ci --prefix slidedeck
 
       - name: Build
         run: nr build --base /${{github.event.repository.name}}/slidedeck/
