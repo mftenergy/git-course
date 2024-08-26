@@ -54,6 +54,5 @@ jobs:
     name: Deploy
     steps:
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: slidedeck/dist # The folder the action should deploy.
+        id: deployment
+        uses: actions/deploy-pages@v4
