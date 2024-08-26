@@ -1,13 +1,10 @@
----
-maintainer: JKrag
----
-# Git Katas
+# Git Course
 
 ## Quick Start
 
 ### In the Cloud
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/praqma-training/git-katas.git)
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/mftenergy/git-course.git)
 
 ### On Your Local Machine
 
@@ -20,17 +17,13 @@ maintainer: JKrag
 
 ## Purpose of Git Katas
 
-This repository is a collection of Git exercises.
-The concept is stolen without shame from [Schauderhaft.de](http://blog.schauderhaft.de/gitkata/).
-Unfortunately, they have not maintained the system - and we need more good Git exercises.
+We want to introduce new employees to Git, as it as vital part of writing software. It ensure we create consistency, coherency and keep a well structured history that can be create collaboratively with other peers.
 
-The exercises are designed for use when we are teaching Git courses. You should be able to use them as self-contained exercises that will allow you to keep your Git skills sharp.
+This repo is a collection of exercises that without a shame is stolen from [git katas](https://github.com/eficode-academy/git-katas).
 
-Exercises starting with _basic_ are entry-level - other exercises vary greatly in difficulty.
+The repo is serves a self-educational purpose, with a presentation that outlines the theory around the exercises.
 
-To get an overview of the exercises in here look in [Overview.md](Overview.md).
-
-Feel free to use these exercises, that's why they're public!
+Git katas has more exercises than the ones shown in here, so feel free to check them out if you want!
 
 ## Suggested Learning Path
 
@@ -38,22 +31,14 @@ If you are coming to this repository for some basic Git knowledge, we recommend 
 This is the order that Jan Krag at Praqma teaches Git and might change over time. There are more exercises than this, but these should take you through
 everything you need to be able to use Git effectively in your day to day life.
 
-- [Basic Commits](./basic-commits/README.md)
-- [Basic Staging](./basic-staging/README.md)
-- [Investigation](./investigation/README.md)
-- [Basic Branching](./basic-branching/README.md)
-- [Fast Forward Merge](./ff-merge/README.md)
-- [3 way Merge](./3-way-merge/README.md)
-- [Merge Mergesort](./merge-mergesort/README.md)
-- [Rebase Branch](./rebase-branch/README.md)
-- [Basic Revert](./basic-revert/README.md)
-- [Reset](./reset/README.md)
-- [Basic Cleaning](./basic-cleaning/README.md)
-- [Amend](./amend/README.md)
-- [Reorder the History](./reorder-the-history/README.md)
-- [Advanced Rebase Interactive](./advanced-rebase-interactive/README.md)
-- [Rebase using autosquash](./rebase-interactive-autosquash/README.md)
-- [Basic Stashing](./basic-stashing/README.md)
+0. [setup-git-client](setup-git/README.md) - Setup your git client in order to do git operations like `commit`
+1. [basic-commits](basic-commits/README.md) - Very basic creation of commits.
+2. [basic-staging](basic-staging/README.md) - Interacting with the stage (index).
+3. [basic-branching](basic-branching/README.md) - The first stride into branching.
+4. [rebase-branch](rebase-branch/README.md) - Using rebase as an alternative to merging.
+5. [basic-revert](basic-revert/README.md) - Use revert to revert a change
+6. [reset](reset/README.md) - Reset is a powerful and slightly dangerous command if you do not know what you are doing. Go through the three modes of resetting here.
+7. [basic-stashing](basic-stashing/README.md) - The first stride into stashing.
 
 See [Overview.md](Overview.md) for a more complete list and suggested order.
 
@@ -64,12 +49,6 @@ If you miss exercises or find errors in any of them, feel free to improve them a
 You can also make an issue so we notice an opportunity to improve!
 
 Thank you!
-
-### Celebrating success
-
-On September 6th, 2023, we reached the milestone of having 1000 stars on GitHub. Thank you all for your support! This repository would not be where it is without the valuable contributions from the community.
-
-![1000 stars](/docs/1000stars-git-katas.png)
 
 ## Cheatsheet
 

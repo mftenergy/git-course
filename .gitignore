@@ -4,3 +4,4 @@ git_attributes
 **/exercise
 **/remote
 .DS_Store
+dist
