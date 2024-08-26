@@ -2,6 +2,8 @@
 
 ## Quick Start
 
+Start by reading the [course material](https://mftenergy.github.io/git-course/1)
+
 ### In the Cloud
 
 [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/mftenergy/git-course.git)
