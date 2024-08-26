@@ -31,17 +31,20 @@ jobs:
         run: npm i -g @antfu/ni
 
       - name: Install dependencies
-        run: npm ci --prefix slidedeck
+        working-directory: ./slidedeck
+        run: nci
 
       - name: Build
+        working-directory: ./slidedeck
         run: nr build --base /${{github.event.repository.name}}/slidedeck/
 
       - name: Setup Pages
+        working-directory: ./slidedeck
         uses: actions/configure-pages@v4
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: slidedeck/dist
 
   deploy:
     environment:
