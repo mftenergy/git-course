@@ -77,7 +77,7 @@ jobs:
     - name: Run setup scripts with Bash
       shell: bash
       run: |
-        git config --global --add safe.directory /__w/git-course/git-course
+        git config --global --add safe.directory /__w/Gitting-comfortable/Gitting-comfortable
         git --version
         git config --global user.name "GitHub Actions"
         git config --global user.email "nobody@localhost"
