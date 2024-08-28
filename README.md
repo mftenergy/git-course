@@ -1,23 +1,30 @@
-# Git Course
+# *Git*ting comfortable
 
-## Quick Start
+## Course theory
 
-Start by reading the [course material](https://mftenergy.github.io/git-course/1)
+Read the [course material](https://mftenergy.github.io/git-course/1)
 
-### In the Cloud
+## Exercises
+
+Pressing the link below opens a cloud shell in google with a cloned environment of the current repo containing the exercises.
 
 [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/mftenergy/git-course.git)
 
-### On Your Local Machine
-
-![Quick Start](/images/quickstart.gif)
+<details>
+  <summary>On your local machine</summary>
+  
+![Quick Start](/images/git_clone.gif)
 
 - Clone this repository
 - Go into the folder you want to solve an exercise in
 - Run the `setup.sh` script
 - Consult the README.md in that folder to get a description of the exercise
 
-## Purpose of Git Katas
+</details>
+
+You start an exercise by pathing into the directory of the exercise and running `./setup.sh` (or `./setup.ps1` if you are on windows)
+
+## Purpose
 
 We want to introduce new employees to Git, as it as vital part of writing software. It ensure we create consistency, coherency and keep a well structured history that can be create collaboratively with other peers.
 
@@ -28,10 +35,6 @@ The repo is serves a self-educational purpose, with a presentation that outlines
 Git katas has more exercises than the ones shown in here, so feel free to check them out if you want!
 
 ## Suggested Learning Path
-
-If you are coming to this repository for some basic Git knowledge, we recommend going through the exercises in the following order.
-This is the order that Jan Krag at Praqma teaches Git and might change over time. There are more exercises than this, but these should take you through
-everything you need to be able to use Git effectively in your day to day life.
 
 0. [setup-git-client](setup-git/README.md) - Setup your git client in order to do git operations like `commit`
 1. [basic-commits](basic-commits/README.md) - Very basic creation of commits.
@@ -61,7 +64,7 @@ A collection of useful commands to use throughout the exercises:
 git init            # Initialize an empty git repository under current directory.
 
 # Cloning a repository
-git clone https://github.com/praqma-training/git-katas.git      # Clone this repository to your current working directory
+git clone https://github.com/praqma-training/gitting-comfortable.git      # Clone this repository to your current working directory
 
 # Git (user and repo level) configurations
 git config --local user.name "Repo-level Username"          # For setting a local git repo level user name.

@@ -1,4 +1,4 @@
-# Git Kata: rebase branch
+# *Git*ting comfortable: rebase branch
 
 ## Setup
 

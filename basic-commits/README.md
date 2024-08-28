@@ -1,4 +1,4 @@
-# Git Kata: Basic Commits
+# *Git*ting comfortable: Basic Commits
 This kata will introduce you to the `git add` and `git commit` commands.
 
 This is a very introductory kata. if you have used `git status`, `git log --oneline --graph`, `git add` and `git commit` extensively you should probably skip it.

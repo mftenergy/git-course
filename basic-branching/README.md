@@ -1,4 +1,4 @@
-# Git Kata: Basic Branching
+# *Git*ting comfortable: Basic Branching
 
 ## Setup
 
