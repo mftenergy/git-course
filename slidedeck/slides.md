@@ -43,7 +43,7 @@ git add <file> # Add a file to "staging"
 
 git commit -m <message> # Records all changes that are staged by add with documentation on the work done in the files
 
-git push -u origin <branch> # Push all missing commits from localhost to a git server syncing your records with a server for collaboration
+git push -u origin <branch> # Push all missing commits from localhost (your machine) to a git server syncing your records with a server for collaboration
 
 git checkout -b <branch> # Create and switch branch in a single command
 ```
@@ -58,7 +58,7 @@ Git works as a client server paradigm
 <br>
 <br>
 
-Git works by a client (a user) downloads the source code from a `repository`, makes edit locally and syncs these edits to `origin` (the server of which you downloaded the source code). <br><br>
+Git works by a client (a user) cloning the source code from a `repository`, performing edits locally and pushing these edits to `origin` (the server from which you downloaded the source code). <br><br>
 The benefit is here, that you can have multiple clients each with their own cloned repository, working on the same repo at the same time and continuously pushing code to origin.
 
 ::right::
