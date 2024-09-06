@@ -205,7 +205,7 @@ Selling points:
 
 <v-click>
 
-Another benefit of Git is that we can integrate the version control with <span v-mark.circle.orange="3">automation tooling</span> that continuously <span v-mark.circle.red="4">quality check</span> your code.
+Another benefit of Git is that we can integrate the version control with <span v-mark.circle.orange="3">automation tooling</span> which continuously <span v-mark.circle.red="4">quality checks</span> your code.
 
 </v-click>
 
