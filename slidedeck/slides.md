@@ -3,14 +3,9 @@
 theme: seriph
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: https://cover.sli.dev
+background: /MFT_background_1.png
 # some information about your slides (markdown enabled)
 title: Welcome to Slidev
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
 # apply unocss classes to the current slide
 class: text-center
 # https://sli.dev/features/drawing
@@ -22,35 +17,270 @@ transition: slide-left
 mdc: true
 ---
 
-# Welcome to Slidev
+# Welcome to *Git*ting comfortable
 
-Presentation slides for developers
+A short introduction to Git
 
 <div class="pt-12">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
+    Press Space or use keyboard arrows for next page <carbon:arrow-right class="inline"/>
   </span>
 </div>
 
-<div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub" title="Open in GitHub"
-    class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
+---
+
+# Basics of Git
+
+Git is a version control system that helps you manage text files of all sorts in a collaborative and structured manner. <br>
+
+The concept of git is that you work with a `repository` of which you can create `branches` (think shortlived variants of the codebase) that enables you to collaborate from the same point in time. You `commit` changes to a branch to create a record of your change for others and yourself to keep track of the history in changes. <br>
+
+At the end you sync changes to a git server with `push` in order to save work and synchronize changes with your colleagues or automation systems.
+
+```bash
+
+git add <file> # Add a file to "staging"
+
+git commit -m <message> # Records all changes that are staged by add with documentation on the work done in the files
+
+git push -u origin <branch> # Push all missing commits from localhost (your machine) to a git server syncing your records with a server for collaboration
+
+git checkout -b <branch> # Create and switch branch in a single command
+```
+
+---
+layout: two-cols
+---
+
+# Basics of Git: Client-server
+
+Git works as a client server paradigm 
+<br>
+<br>
+
+Git works by a client (a user) cloning the source code from a `repository`, performing edits locally and pushing these edits to `origin` (the server from which you downloaded the source code). <br><br>
+The benefit is here, that you can have multiple clients each with their own cloned repository, working on the same repo at the same time and continuously pushing code to origin.
+
+::right::
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+```mermaid
+graph TD
+
+C1[Client 1] -->|push/pull| R[Remote Repository]
+C2[Client 2] -->|push/pull| R[Remote Repository]
+
+C1 -->|commit| L1[Local Repository]
+C2 -->|commit| L2[Local Repository]
+```
+
+---
+layout: two-cols-header
+---
+
+# Why Git?
+
+Selling points:
+
+::left::
+
+<v-clicks>
+
+- Multiple collaborators
+  - 4 eyes principle
+
+</v-clicks>
+
+<v-clicks at=4>
+<br>
+
+*Joe; I like your change +1*
+
+</v-clicks>
+
+::right::
+
+<div v-click> 
+
+Git is an collaborative development solution that versions your code enabling multiple collaborators and pair-review processes built into the methodology.
 </div>
 
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
+
+<div v-click> 
+
+```diff
+public class Hello1
+{
+   public static void Main()
+   {
+-      System.Console.WriteLine("Hello, World!");
++      System.Console.WriteLine("Rock all night long!");
+   }
+}
+```
+</div>
+
+<arrow v-click at=5 x1="250" y1="400" x2="550" y2="450" color="#953" width="2" arrowSize="1" />
 
 ---
-transition: fade-out
+layout: two-cols-header
 ---
 
-# What is Slidev?
+# Why Git?
+
+Selling points:
+
+::left::
+
+<div v-click at=1>
+
+- Change history
+  - Compliance
+  - Reverting is easy
+  - Versioning
+
+</div v-click>
+
+::right::
+<div v-click at=2>
+```mermaid
+---
+title: Example Git diagram
+---
+%%{init: { 'themeVariables': {
+              'commitLabelFontSize': '10px',
+              'branchFontSize': '10px',
+       } } }%%
+gitGraph
+   commit id: "commit1"
+   commit id: "commit2"
+   branch feature/a
+   checkout feature/a
+   commit id: "commit3"
+   commit id: "commit4"
+   checkout main
+   merge feature/a id: "merge"
+   commit id: "commit5" tag:"v1"
+```
+</div v-click>
+
+<div v-click at=3>
+```mermaid
+---
+title: Example Revert
+---
+gitGraph
+   commit id: "commit1" tag:"v1"
+   commit id: "badCommit"
+   commit id: "commit2" tag:"v2"
+   commit id: "revert_badCommit" tag:"v2" type: REVERSE
+```
+</div v-click>
+
+---
+layout:  two-cols-header
+---
+
+# Why Git
+
+Selling points:
+
+::left::
+
+<div v-click at=1>
+
+- Automation
+  - Quality check
+  - Deployment
+
+</div v-click>
+
+
+::right::
+
+<v-click>
+
+Another benefit of Git is that we can integrate the version control with <span v-mark.circle.orange="3">automation tooling</span> which continuously <span v-mark.circle.red="4">quality checks</span> your code.
+
+</v-click>
+
+<v-click at=5>
+```mermaid
+---
+title: Automation
+---
+flowchart LR
+  id1(checkout code)
+  id2(run quality check)
+  id3(deploy service)
+  
+  id1 --> id2
+  id2 --> id3
+```
+</v-click>
+---
+
+# Working with branches
+
+TODO; Talk about branching
+
+- Checkout from main
+- Do edits
+- Commits
+- Push
+- PR
+
+---
+
+# Working with merges / rebasing
+
+TODO; Talk about merge and rebasing
+
+- In relation to PRs
+- In relation to local, where we prefer rebase
+
+---
+
+# Reverting / Rest
+
+TODO; When shit hits the fan
+
+- Revert
+- Reset
+
+---
+
+# Stashing changes
+
+TODO; Stashing
+
+---
+
+# Time to do exercises!
+
+
+- In the repo; https://github.com/mftenergy/Gitting-comfortable there are exercises
+- Follow the path explained at https://github.com/mftenergy/Gitting-comfortable?tab=readme-ov-file#suggested-learning-path
+- Path into an exercise directory, run `setup.sh` and read the README.md for instruction on what to do
+
+```bash
+cd basic-commits
+./setup.sh
+cat README.md
+git magic
+```
+
+NOTE: There is a cheatsheet at the bottom of the README.md in the root of the repository.
+
+---
+
+
+# What is Slidev? asdasd test
 
 Slidev is a slides maker and presenter designed for developers, consist of the following features
 

@@ -1,4 +1,4 @@
-# Git kata: Commit on wrong branch II
+# *Git*ting comfortable: Commit on wrong branch II
 
 ## The Story
 

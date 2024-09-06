@@ -1,4 +1,4 @@
-# Git Kata: Basic stashing
+# *Git*ting comfortable: Basic stashing
 
 ## Setup:
 

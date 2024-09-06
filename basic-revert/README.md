@@ -1,4 +1,4 @@
-# Git Kata: Basic revert
+# *Git*ting comfortable: Basic revert
 ## Setup:
 
 1. Run `source setup.sh` (or `.\setup.ps1` in PowerShell)
