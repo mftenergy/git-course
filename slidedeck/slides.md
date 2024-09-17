@@ -227,24 +227,213 @@ flowchart LR
 
 # Working with branches
 
-TODO; Talk about branching
+Combining branches
 
-- Checkout from main
-- Do edits
-- Commits
-- Push
-- PR
+When a change has been completed on a branch it is ready to be included in `main`. Combining two branches is refered to a *merging*. 
+Before we dive into *how* to do it, it is important to talk about *when*. 
+
+Ideally are branches short lived.
+This means that we should strive to get meaningfull changes merged back into `main` as quickly as possilbe.
+A good rule of thumb is that branches should not live for more than two days.
+In reallity, this can be difficult to always do, but it is a good compass, none the less. 
+
+Following our previous branch we can now go back to main
+<v-switch>
+<template #1>
+```mermaid
+gitGraph
+   commit id: "initial"
+   branch feature/show-branching
+   commit id: "first-feature-change"
+   commit id: "another-change"
+```
+ </template>
+<template #2>
+```mermaid
+gitGraph
+   commit id: "initial"
+   branch feature/show-branching
+   commit id: "first-feature-change"
+   commit id: "another-change"
+   checkout main
+   commit id: "main-first-feature"
+   commit id: "main-another-change"
+   merge feature/show-branching
+```
+ </template>
+</v-switch>
 
 ---
 
-# Working with merges / rebasing
+# Working with merges / rebasing - in realtion to Pull-Requests
 
-TODO; Talk about merge and rebasing
+<v-switch>
+<template #1>
+A Pull-Request is a term used on a git server to faciliate the process of raising a merge from a branch to a target branch, such as a feature branch to main. <br>
+The Pull-Request facilitates things like dicsussions, change requests to edits, diff views, approvals etc - more on this later.
 
-- In relation to PRs
-- In relation to local, where we prefer rebase
+But most importantly it faciliates what happens when a Pull-Request is completed
+</template>
+
+<template #2>
+There exists different methods of completing a Pull-Request;
+
+1. No fast-foward
+1. Fast-forward
+1. Squash commit
+1. Rebase with fast-foward or merge commit
+
+</template>
+
+<template #3>
+
+**No fast-forward** is the method of not rewriting history and simply adding on top of the target branch.
+
+```mermaid
+gitGraph
+  commit id: "1"
+  branch feature/1
+  commit id: "2"
+  checkout main
+  merge feature/1
+```
+
+</template>
+
+<template #4>
+
+**Fast-foward** is the method of rewriting target branch to represent a linear history of events. In below graph you see a merge where the merged point is highlighted and represent a duplicate of the commit with id 2 that happened on the feature branch. If a git log is corretly drawn after the impact of the merge, the branch `feature/implement` will no longer be present.
+
+```mermaid
+gitGraph
+  commit id: "1"
+  branch feature/implement
+  commit id: "2"
+  checkout main
+  merge feature/implement id: "duplicate_2" type: HIGHLIGHT
+```
+
+</template>
+
+<template #5>
+
+**Squash commit** is the method of squashing all your commits that happened on the feature branch to a single commit on the target. This method is much like fast-forward in the sense that the existence of the feature branch will be gone after the merge is complete. This method creates a very clean linear git history.
+
+
+```mermaid
+gitGraph
+  commit id: "Init"
+  branch squash-mr
+  commit id: "commit 1"
+  commit id: "commit 2"
+  checkout main
+  merge squash-mr id: "squashed commit" type: HIGHLIGHT
+```
+
+</template>
+
+<template #6>
+
+**Rebase** A rebase strategy works a in a sense reverse to how regular merges does. Instead of adding on top of the target branch, rebase tages each commit on the feature branch and merges one by one with the differences that happened on main since the feature branch got created.
+
+```mermaid
+gitGraph
+  commit id: "Init"
+  branch feature/rebase
+  commit id: "commit 1"
+  commit id: "commit 2"
+  checkout main
+  commit id: "commit main"
+```
+
+</template>
+
+<template #7>
+Rebase
+<br>
+
+```mermaid
+gitGraph
+  commit id: "Init"
+  branch feature/rebase
+  commit id: "_commit main"
+  commit id: "rebased commit 1"
+  commit id: "rebased commit 2"
+  checkout main
+  commit id: "commit main"
+```
+
+</template>
+
+<template #8>
+Rebase and merge
+<br>
+
+```mermaid
+gitGraph
+  commit id: "Init"
+  commit id: "commit main"
+  commit id: "rebased commit 1"
+  commit id: "rebased commit 2"
+```
+
+</template>
+
+<template #9>
+
+For more information on read the following topics;
+
+1. [Merging vs Rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing#:~:text=Integrating%20an%20approved%20feature&text=However%2C%20by%20performing%20a%20rebase,added%20during%20a%20pull%20request.)
+1. [Git merge](https://www.atlassian.com/git/tutorials/using-branches/git-merge)
+
+</template>
+
+</v-switch>
+---
+
+# Working with merges / rebasing - in realtion to local git
+<br>
+
+<v-switch>
+
+<template #1>
+It is not just at the git server we need to do merges / rebasing. These also happen locally, usually in order to synchronize a feature branch with changes from main before you create a pull request.
+
+You can use the same methods as mentioned above locally, however there are a few rule-of-thumb's that we want to introduces: 
+</template>
+
+<template #2>
+
+Pull newest changes of main into your feature branch with fast-forward strategy. This is the safest and cleanest method next to rebase
+
+```bash
+git checkout feature/branch
+git pull origin main --ff
+```
+
+</template>
+
+<template #3>
+
+Pull newest changes of main into your feature branch with rebase strategy. You can use this in-case fast-foward fails or you need to be more in control wil merge conflicts
+
+```bash
+git checkout feature/branch
+git pull origin main --rebase
+```
+
+</template>
+
+</v-switch>
 
 ---
+
+# Merge conflicts
+
+
+
+---
+
 
 # Reverting / Rest
 
