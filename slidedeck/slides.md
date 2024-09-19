@@ -424,6 +424,18 @@ git pull origin main --rebase
 
 </template>
 
+<template #4>
+
+Pull newest changes of main into your feature branch with rebase strategy. You can use this in-case fast-foward fails or you need to be more in control wil merge conflicts
+
+```bash
+git checkout feature/branch
+git fetch omain
+git merge origin/main
+```
+
+</template>
+
 </v-switch>
 
 ---
