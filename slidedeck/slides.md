@@ -15,6 +15,7 @@ drawings:
 transition: slide-left
 # enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
+lineNumbers: true
 ---
 
 # Welcome to *Git*ting comfortable
@@ -389,10 +390,16 @@ For more information on read the following topics;
 </template>
 
 </v-switch>
+
+---
+
+# Video on git merge / rebase
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0chZFIZLR_0?si=wXEsqrpC528IVvkj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ---
 
 # Working with merges / rebasing - in realtion to local git
-<br>
 
 <v-switch>
 
@@ -442,25 +449,180 @@ git merge origin/main
 
 # Merge conflicts
 
+When you are more than one participant on a git repository, then you will at some point run into a merge conflict. <br>
 
+<v-switch>
+
+<template #1>
+
+Think of a scenario where you and a colleague both created a branch from main:
+
+```mermaid
+gitGraph
+  commit id: "1"
+  branch feature/colleague1
+  commit id: "2"
+  checkout main
+  branch feature/colleague2
+  commit id: "3"
+```
+
+</template>
+
+<template #2>
+
+You both edited the same file `text.txt` on the same line 1:
+
+(colleague1)
+```diff
+
++echo "hello colleague1"
+
+```
+
+(colleague2)
+```diff
+
++echo "hello colleague2"
+
+```
+
+</template>
+
+</v-switch>
+
+---
+
+# Merge conflicts
+
+When you are more than one participant on a git repository, then you will at some point run into a merge conflict. <br>
+
+This will result in a conflict where both colleague1 and colleague2 have changed the exact same line on the exact same file;
+
+```diff {all|3|5|all}
+@@@ -1,1 -1,1 +1,5 @@@
+++<<<<<<< HEAD
++echo "hello colleague1"
+++=======
++ +echo "hello colleague2"
+++>>>>>>> feature/colleague2
+```
+
+The diff is noted with all the special characters you in one block has what current revision marks as the "truth" and another block marks the incomming change as possible new "truth". Merge conflicts can happen both when doing local merge/rebase or when you open a PR. Often times the git server cannot handle merge conflicts for you, so you are required to do it locally.
+
+Merge conflicts can be handled "easily" in your favorite IDE.
 
 ---
 
 
-# Reverting / Rest
+# Short video on git revert
 
-TODO; When shit hits the fan
+<iframe width="560" height="315" src="https://www.youtube.com/embed/H2DuJNWbqLw?si=Ltw_X87fbonFOsqe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-- Revert
-- Reset
+---
+
+# Reverting / Reset
+
+You can end up in a situation where you find yourself in a detached head state or you simply commited to the wrong branch or similar. This is where [git revert](https://git-scm.com/docs/git-revert) or [git reset](https://git-scm.com/docs/git-reset) comes in handy.
+
+<v-switch>
+
+<template #1>
+
+Lets say you ended up in a situation where you did not want to have commited the files anyway.
+
+```diff
+
+echo "hello world"
++ echo "I did not want this change to be in the file
+```
+
+</template>
+
+<template #2>
+
+Your git status says that you have one change yet to be synced:
+
+```{2}
+On branch feature/merge_strategies
+Your branch is ahead of 'origin/feature/merge_strategies' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+```
+
+</template>
+
+<template #3>
+
+Then using git reset can help you get back to a point where you can edit the commit once again or scratch the commit entirely.
+
+```bash
+git reset --soft <commitid>
+git reset --hard <commitid>
+```
+
+<br>
+
+```bash
+git reset --soft HEAD~1 # This will undo the latest commit happened on the current branch. 
+  # --soft will make it so the edit is still changed and staged but not commited
+```
+
+<br>
+
+```bash
+git reset --hard HEAD~1 # This will undo the latest commit happened on the current branch. 
+# --hard will make it so the edit of the commit is nowhere to be found anymore.
+```
+
+</template>
+
+<template #4>
+
+If you find yourself having commited and pushed the changes to a branch and you want to undo commit, then reset can be used, but it will be much cleaner to do a revert:
+
+```bash
+git revert <commitid>
+```
+
+<br>
+
+```bash
+git revert HEAD~1 # This will create a new commit undoing all changes from the latest commit on the branch
+```
+
+The main difference between revert and reset is that revert is for undoing changes with a new commit, whereas reset is mostly used before changes are synced with origin
+
+</template>
+
+
+
+</v-switch>
+
+---
+
+# Video on git stash
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lH3ZkwbVp5E?si=z4V07VS_zoSn5Qb0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
 # Stashing changes
 
-TODO; Stashing
+Git stashing is the method of saving your unstaged work for a later point. Often it can be used to save work in order to do a `git pull` or if you made changes on a branch that should not have been done from that revision.
+
+Git stash works as a LIFO queue (last in - first out), where if you run `git stash push` then an entry is put into the cue with the current stages and unstaged changes. If you then run `git stash pop` then the edits you just put int op the queue are "popped" from the queue and the edits are present again.
+
+```bash
+git stash list # will list the current queue of stashed entries
+git stash push # will push current edits into a stash entry for the queue
+git stash list # Should now have a single entry in it
+git stash pop # will remove the entry from the queue and apply the edits again in the local repo
+```
 
 ---
+
 
 # Time to do exercises!
 
@@ -478,8 +640,12 @@ git magic
 
 NOTE: There is a cheatsheet at the bottom of the README.md in the root of the repository.
 
----
+You have two option;
 
+1. **recommended** [Run in google cloud spaces (free)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/mftenergy/git-course.git)
+1. Run everything locally, if you choose that then read: [https://github.com/mftenergy/Gitting-comfortable/blob/main/setup-git/README.md](setup-git)
+
+---
 
 # What is Slidev? asdasd test
 
