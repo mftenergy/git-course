@@ -10,6 +10,16 @@ Pressing the link below opens a cloud shell in google with a cloned environment 
 
 [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/mftenergy/git-course.git)
 
+Starting a exercise:
+
+```bash
+cd basic-branching
+./run.sh
+cat README.md
+```
+
+Do the exercise from here as written in the README.md of the exercise. Continue to the rest of exercises at your own speed.
+
 <details>
   <summary>On your local machine</summary>
   
