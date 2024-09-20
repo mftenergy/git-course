@@ -30,6 +30,14 @@ A short introduction to Git
 
 ---
 
+# What is git?
+
+If you are completly new to git, then see the below video. If you know the basics, then continue onwards with the slides.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/USjZcfj8yxE?si=ArZewjdgoYvWBVlA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
 # Basics of Git
 
 Git is a version control system that helps you manage text files of all sorts in a collaborative and structured manner. <br>
