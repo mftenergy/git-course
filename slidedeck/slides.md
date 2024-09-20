@@ -270,7 +270,7 @@ gitGraph
 
 <v-switch>
 <template #1>
-A Pull-Request is a term used on a git server to faciliate the process of raising a merge from a branch to a target branch, such as a feature branch to main. <br>
+A Pull-Request is the process of raising awareness about a merge from a branch to a target branch, such as a feature branch to main. <br>
 The Pull-Request facilitates things like dicsussions, change requests to edits, diff views, approvals etc - more on this later.
 
 But most importantly it faciliates what happens when a Pull-Request is completed
@@ -335,7 +335,7 @@ gitGraph
 
 <template #6>
 
-**Rebase** A rebase strategy works a in a sense reverse to how regular merges does. Instead of adding on top of the target branch, rebase tages each commit on the feature branch and merges one by one with the differences that happened on main since the feature branch got created.
+**Rebase** A rebase strategy works a in a sense reverse to how regular merges does. Instead of adding on top of the target branch, rebase takes each commit on the feature branch and merges one by one with the differences that happened on main since the feature branch got created.
 
 ```mermaid
 gitGraph
@@ -437,7 +437,7 @@ Pull newest changes of main into your feature branch with rebase strategy. You c
 
 ```bash
 git checkout feature/branch
-git fetch omain
+git fetch main
 git merge origin/main
 ```
 
