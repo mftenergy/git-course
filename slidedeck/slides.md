@@ -238,13 +238,13 @@ flowchart LR
 
 Combining branches
 
-When a change has been completed on a branch it is ready to be included in `main`. Combining two branches is refered to a *merging*. 
+When a change has been completed on a branch it is ready to be included in `main`. Combining two branches is referred to a *merging*. 
 Before we dive into *how* to do it, it is important to talk about *when*. 
 
 Ideally are branches short lived.
-This means that we should strive to get meaningfull changes merged back into `main` as quickly as possilbe.
+This means that we should strive to get meaningful changes merged back into `main` as quickly as possible.
 A good rule of thumb is that branches should not live for more than two days.
-In reallity, this can be difficult to always do, but it is a good compass, none the less. 
+In reality, this can be difficult to always do, but it is a good compass, none the less. 
 
 Following our previous branch we can now go back to main
 <v-switch>
@@ -279,18 +279,18 @@ gitGraph
 <v-switch>
 <template #1>
 A Pull-Request is the process of raising awareness about a merge from a branch to a target branch, such as a feature branch to main. <br>
-The Pull-Request facilitates things like dicsussions, change requests to edits, diff views, approvals etc - more on this later.
+The Pull-Request facilitates things like discussions, change requests to edits, diff views, approvals etc - more on this later.
 
-But most importantly it faciliates what happens when a Pull-Request is completed
+But most importantly it facilitates what happens when a Pull-Request is completed
 </template>
 
 <template #2>
 There exists different methods of completing a Pull-Request;
 
-1. No fast-foward
+1. No fast-forward
 1. Fast-forward
 1. Squash commit
-1. Rebase with fast-foward or merge commit
+1. Rebase with fast-forward or merge commit
 
 </template>
 
@@ -414,7 +414,7 @@ For more information on read the following topics;
 <template #1>
 It is not just at the git server we need to do merges / rebasing. These also happen locally, usually in order to synchronize a feature branch with changes from main before you create a pull request.
 
-You can use the same methods as mentioned above locally, however there are a few rule-of-thumb's that we want to introduces: 
+You can use the same methods as mentioned above locally, however there are a few rule-of-thumb's that we want to introduces:
 </template>
 
 <template #2>
@@ -432,7 +432,7 @@ git pull origin main --ff
 <template #3>
 
 **rebase**<br>
-Pull newest changes of main into your feature branch with rebase strategy. You can use this in-case fast-foward fails or you need to be more in control wil merge conflicts
+Pull newest changes of main into your feature branch with rebase strategy. You can use this in-case fast-forward fails or you need to be more in control wil merge conflicts
 
 ```bash{2}
 git checkout feature/branch
@@ -444,7 +444,7 @@ git pull origin main --rebase
 <template #4>
 
 **merge with merge commit**<br>
-Pull newest changes of main into your feature branch with. You can use this in-case fast-foward fails or you need to be more in control wil merge conflicts
+Pull newest changes of main into your feature branch with. You can use this in-case fast-forward fails or you need to be more in control wil merge conflicts
 
 ```bash{3}
 git checkout feature/branch
@@ -519,7 +519,7 @@ This will result in a conflict where both colleague1 and colleague2 have changed
 ++>>>>>>> feature/colleague2
 ```
 
-The diff is noted with all the special characters you in one block has what current revision marks as the "truth" and another block marks the incomming change as possible new "truth". Merge conflicts can happen both when doing local merge/rebase or when you open a PR. Often times the git server cannot handle merge conflicts for you, so you are required to do it locally.
+The diff is noted with all the special characters you in one block has what current revision marks as the "truth" and another block marks the incoming change as possible new "truth". Merge conflicts can happen both when doing local merge/rebase or when you open a PR. Often times the git server cannot handle merge conflicts for you, so you are required to do it locally.
 
 Merge conflicts can be handled "easily" in your favorite IDE.
 
@@ -534,13 +534,13 @@ Merge conflicts can be handled "easily" in your favorite IDE.
 
 # Reverting / Reset
 
-You can end up in a situation where you find yourself in a detached head state or you simply commited to the wrong branch or similar. This is where [git revert](https://git-scm.com/docs/git-revert) or [git reset](https://git-scm.com/docs/git-reset) comes in handy.
+You can end up in a situation where you find yourself in a detached head state or you simply committed to the wrong branch or similar. This is where [git revert](https://git-scm.com/docs/git-revert) or [git reset](https://git-scm.com/docs/git-reset) comes in handy.
 
 <v-switch>
 
 <template #1>
 
-Lets say you ended up in a situation where you did not want to have commited the files anyway.
+Lets say you ended up in a situation where you did not want to have committed the files anyway.
 
 ```diff
 
@@ -577,7 +577,7 @@ git reset --hard <commitid>
 
 ```bash
 git reset --soft HEAD~1 # This will undo the latest commit happened on the current branch. 
-  # --soft will make it so the edit is still changed and staged but not commited
+  # --soft will make it so the edit is still changed and staged but not committed
 ```
 
 <br>
