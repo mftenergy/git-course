@@ -2,11 +2,27 @@
 
 This kata has no `setup.sh` script. Just read and follow along.
 
-## Downloading and Installing on Windows
+<details>
+<summary>Download and install on Windows</summary>
 
 * Download at [https://git-scm.com/download/win](https://git-scm.com/download/win) (or use [Chocolatey](https://chocolatey.org/))
 * Install using the pre-selected defaults
 * After installation, open Git Bash for following configuration steps
+</details>
+
+<details>
+<summary>Download and install on Mac</summary>
+
+* Install [homebrew](https://brew.sh/)
+* `brew install git`
+</details>
+
+<details>
+<summary>Download and install on Linux</summary>
+Based on your distribution install git using your package manager.
+* `sudo dnf/apt/apk install git-all`
+</details>
+
 
 ## Git Initial Configuration
 
